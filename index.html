@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taj Fashion | Designer Punjabi Suits</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --soft-pink: #FFF0F5;
+            --deep-pink: #DB7093;
+        }
+        body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+        .brand-font { font-family: 'Playfair Display', serif; }
+        .bg-taj-pink { background-color: var(--soft-pink); }
+        .text-gold { color: var(--gold); }
+        .border-gold { border-color: var(--gold); }
+        .btn-premium {
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        .btn-premium:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+                <div class="flex-shrink-0 flex items-center flex-col">
+                    <span class="brand-font text-3xl font-bold tracking-widest text-gray-900 uppercase">Taj Fashion</span>
+                    <span class="text-[10px] tracking-[0.3em] text-gold uppercase -mt-1 font-semibold">House of Punjabi Suits</span>
+                </div>
+
+                <div class="hidden md:flex space-x-10 text-xs uppercase tracking-[0.2em] font-medium text-gray-600">
+                    <a href="#home" class="hover:text-gold transition">Home</a>
+                    <a href="#shop" class="hover:text-gold transition">Shop</a>
+                    <a href="#new" class="hover:text-gold transition">New Arrivals</a>
+                    <a href="#contact" class="hover:text-gold transition">Contact</a>
+                </div>
+
+                <div class="flex items-center">
+                    <a href="https://wa.me/910000000000" class="hidden sm:block text-xs uppercase tracking-widest font-bold border-b-2 border-gold pb-1 hover:text-gold transition">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-6 space-y-4 shadow-lg">
+            <a href="#home" class="block text-sm py-2">Home</a>
+            <a href="#shop" class="block text-sm py-2">Shop</a>
+            <a href="#new" class="block text-sm py-2">New Arrivals</a>
+            <a href="#contact" class="block text-sm py-2">Contact</a>
+        </div>
+    </nav>
+
+    <header id="home" class="relative bg-taj-pink h-[70vh] flex items-center">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+            <div class="z-10 text-center md:text-left">
+                <h4 class="text-gold uppercase tracking-[0.4em] text-sm mb-4 font-bold">New Summer 2026</h4>
+                <h1 class="brand-font text-5xl md:text-7xl mb-6 text-gray-900 leading-tight">Authentic <br><span class="italic">Punjabi Elegance</span></h1>
+                <p class="text-gray-600 mb-8 max-w-md mx-auto md:mx-0 font-light leading-relaxed">Luxury ethnic wear curated for the modern woman who values tradition and style.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#shop" class="bg-gray-900 text-white px-8 py-4 text-xs uppercase tracking-widest hover:bg-gold transition duration-500">Shop Collection</a>
+                </div>
+            </div>
+            <div class="hidden md:block">
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=800" 
+                     alt="Punjabi Suit Model" class="rounded-t-full border-[12px] border-white shadow-2xl h-[500px] w-full object-cover">
+            </div>
+        </div>
+    </header>
+
+    <main id="shop" class="max-w-7xl mx-auto py-24 px-6">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+            <div>
+                <h2 class="brand-font text-4xl text-gray-900">Featured Suits</h2>
+                <p class="text-gray-500 mt-2">Hand-picked styles just for you</p>
+            </div>
+            <div class="flex space-x-4 text-xs uppercase tracking-widest font-bold border-b border-gray-200">
+                <button class="pb-2 border-b-2 border-gold text-gold">All</button>
+                <button class="pb-2 text-gray-400 hover:text-gray-600 transition">Cotton</button>
+                <button class="pb-2 text-gray-400 hover:text-gray-600 transition">Silk</button>
+                <button class="pb-2 text-gray-400 hover:text-gray-600 transition">Party Wear</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+            <div class="group">
+                <div class="relative overflow-hidden mb-4 bg-gray-50 aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1595991838459-4ac1d917ed45?auto=format&fit=crop&q=80&w=800" alt="Product" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <a href="https://wa.me/910000000000?text=I'm interested in the Blush Pink Cotton Suit" class="block w-full bg-white/90 backdrop-blur py-3 text-center text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-gold hover:text-white transition">Quick Order</a>
+                    </div>
+                </div>
+                <h3 class="brand-font text-lg text-gray-900">Blush Pink Cotton Suit</h3>
+                <div class="flex justify-between items-center mt-1">
+                    <p class="text-gold font-bold">₹3,499</p>
+                    <span class="text-[10px] text-gray-400 uppercase tracking-widest">Free Shipping</span>
+                </div>
+            </div>
+
+            <div class="group">
+                <div class="relative overflow-hidden mb-4 bg-gray-50 aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?auto=format&fit=crop&q=80&w=800" alt="Product" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <a href="https://wa.me/910000000000?text=I'm interested in the Royal Silk Patiala" class="block w-full bg-white/90 backdrop-blur py-3 text-center text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-gold hover:text-white transition">Quick Order</a>
+                    </div>
+                </div>
+                <h3 class="brand-font text-lg text-gray-900">Royal Silk Patiala</h3>
+                <div class="flex justify-between items-center mt-1">
+                    <p class="text-gold font-bold">₹5,999</p>
+                    <span class="text-[10px] text-gray-400 uppercase tracking-widest">Handmade</span>
+                </div>
+            </div>
+
+            <div class="group">
+                <div class="relative overflow-hidden mb-4 bg-gray-50 aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1610030469668-93510ec678f5?auto=format&fit=crop&q=80&w=800" alt="Product" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <a href="https://wa.me/910000000000?text=I'm interested in the Golden Zari Suit" class="block w-full bg-white/90 backdrop-blur py-3 text-center text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-gold hover:text-white transition">Quick Order</a>
+                    </div>
+                </div>
+                <h3 class="brand-font text-lg text-gray-900">Golden Zari Suit</h3>
+                <div class="flex justify-between items-center mt-1">
+                    <p class="text-gold font-bold">₹7,200</p>
+                    <span class="text-[10px] text-gray-400 uppercase tracking-widest">Premium</span>
+                </div>
+            </div>
+
+            <div class="group">
+                <div class="relative overflow-hidden mb-4 bg-gray-50 aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800" alt="Product" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <a href="https://wa.me/910000000000?text=I'm interested in the Floral Organza Edit" class="block w-full bg-white/90 backdrop-blur py-3 text-center text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-gold hover:text-white transition">Quick Order</a>
+                    </div>
+                </div>
+                <h3 class="brand-font text-lg text-gray-900">Floral Organza Edit</h3>
+                <div class="flex justify-between items-center mt-1">
+                    <p class="text-gold font-bold">₹4,850</p>
+                    <span class="text-[10px] text-gray-400 uppercase tracking-widest">New Arrival</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="bg-gray-50 py-20 border-y border-gray-100">
+        <div class="text-center mb-12">
+            <h2 class="brand-font text-3xl">Follow Our Journey</h2>
+            <p class="text-gray-400 text-sm mt-2 tracking-widest">@TAJFASHION.OFFICIAL</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-6">
+            <div class="aspect-square bg-gray-200 overflow-hidden border border-white">
+                <img src="https://images.unsplash.com/photo-1551803091-e20673f15770?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover hover:opacity-80 transition">
+            </div>
+            <div class="aspect-square bg-gray-200 overflow-hidden border border-white">
+                <img src="https://images.unsplash.com/photo-1595991838459-4ac1d917ed45?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover hover:opacity-80 transition">
+            </div>
+            <div class="aspect-square bg-gray-200 overflow-hidden border border-white">
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover hover:opacity-80 transition">
+            </div>
+            <div class="aspect-square bg-gray-200 overflow-hidden border border-white md:block hidden">
+                <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover hover:opacity-80 transition">
+            </div>
+            <div class="aspect-square bg-gray-200 overflow-hidden border border-white md:block hidden">
+                <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover hover:opacity-80 transition">
+            </div>
+            <div class="aspect-square bg-gray-200 overflow-hidden border border-white md:block hidden">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover hover:opacity-80 transition">
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-white pt-24 pb-12 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-gray-100 pb-16">
+            <div class="col-span-1 md:col-span-1">
+                <h3 class="brand-font text-2xl font-bold uppercase tracking-tighter mb-6">Taj Fashion</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Redefining Punjabi Ethnic wear since 2010. Quality fabrics and timeless designs for every occasion.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-gold transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-8">Navigation</h4>
+                <ul class="text-gray-500 text-sm space-y-4">
+                    <li><a href="#home" class="hover:text-gold">Home</a></li>
+                    <li><a href="#shop" class="hover:text-gold">Collections</a></li>
+                    <li><a href="#new" class="hover:text-gold">New Arrivals</a></li>
+                    <li><a href="#contact" class="hover:text-gold">Size Guide</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-8">Boutique</h4>
+                <p class="text-gray-500 text-sm mb-4">📍 Main Market Road, Phagwara<br>Punjab, India</p>
+                <p class="text-gray-500 text-sm">📞 +91 00000 00000</p>
+                <p class="text-gray-500 text-sm">✉️ hello@tajfashion.com</p>
+            </div>
+
+            <div>
+                <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-8">Stay Updated</h4>
+                <div class="flex border-b border-gray-200 pb-2">
+                    <input type="email" placeholder="Email Address" class="bg-transparent border-none text-sm w-full focus:outline-none">
+                    <button class="text-gold uppercase text-[10px] font-bold">Join</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-400 uppercase tracking-widest gap-4">
+            <p>© 2026 Taj Fashion. Handcrafted in Punjab.</p>
+            <div class="flex space-x-6">
+                <span>Privacy Policy</span>
+                <span>Terms of Service</span>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/910000000000" class="whatsapp-float">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+                                                                                                             </html>
