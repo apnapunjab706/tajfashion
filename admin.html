@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taj Fashion | Boutique Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root { --gold: #D4AF37; --soft-pink: #FFF0F5; --text-main: #1a1a1a; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--text-main); }
+        .brand-font { font-family: 'Playfair Display', serif; }
+        
+        .page-view { display: none; animation: fadeIn 0.5s ease-out forwards; }
+        .page-view.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .admin-card { border: 1px dashed #d1d5db; transition: all 0.3s; }
+        .admin-card:hover { border-color: var(--gold); background: #fffdfa; }
+    </style>
+</head>
+<body class="bg-white">
+
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="brand-font text-2xl font-bold cursor-pointer" onclick="showPage('home')">
+                TAJ <span class="text-gold italic">Fashion</span>
+            </div>
+            <div class="flex items-center space-x-8 text-[10px] uppercase tracking-[0.3em] font-bold">
+                <a href="#" onclick="showPage('home')" class="hover:text-gold transition">Shop</a>
+                <a href="#" onclick="showPage('admin')" class="bg-gray-100 px-4 py-2 rounded-full hover:bg-gold hover:text-white transition">
+                    <i class="fa-solid fa-lock mr-2"></i>Admin Panel
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-24">
+
+        <section id="home" class="page-view active">
+            <div class="max-w-7xl mx-auto py-12 px-6">
+                <div class="text-center mb-16">
+                    <h2 class="brand-font text-4xl mb-2">The Collection</h2>
+                    <p class="text-gray-400 text-xs uppercase tracking-[0.3em]">Curated Punjabi Excellence</p>
+                </div>
+
+                <div id="product-grid" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
+                    </div>
+            </div>
+        </section>
+
+        <section id="admin" class="page-view">
+            <div class="max-w-4xl mx-auto py-12 px-6">
+                <div class="flex justify-between items-center mb-10">
+                    <h2 class="brand-font text-3xl">Suit Manager</h2>
+                    <button onclick="showPage('home')" class="text-xs uppercase tracking-widest text-gray-400 hover:text-black">Exit Admin</button>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-xl mb-12 shadow-inner">
+                    <h3 class="text-sm font-bold uppercase tracking-widest mb-6 text-gold">Add New Design</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" id="suitTitle" placeholder="Suit Name (e.g. Royal Patiala)" class="p-4 bg-white border-0 rounded-lg text-sm outline-none ring-1 ring-gray-200 focus:ring-gold">
+                        <input type="text" id="suitPrice" placeholder="Price (e.g. 5499)" class="p-4 bg-white border-0 rounded-lg text-sm outline-none ring-1 ring-gray-200 focus:ring-gold">
+                        <input type="text" id="suitImg" placeholder="Image URL (Link to photo)" class="p-4 bg-white border-0 rounded-lg text-sm outline-none ring-1 ring-gray-200 focus:ring-gold md:col-span-2">
+                        <button onclick="addProduct()" class="md:col-span-2 bg-gray-900 text-white py-4 text-xs font-bold uppercase tracking-[0.2em] rounded-lg hover:bg-gold transition">
+                            Save Design to Website
+                        </button>
+                    </div>
+                </div>
+
+                <h3 class="text-sm font-bold uppercase tracking-widest mb-6">Current Inventory</h3>
+                <div id="admin-list" class="space-y-4">
+                    </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="mt-20 border-t border-gray-100 py-10 text-center">
+        <p class="text-[9px] text-gray-300 uppercase tracking-[0.5em]">© 2026 Taj Fashion | Managed by IG: txnvir_x6610</p>
+    </footer>
+
+    <script>
+        // Initial Sample Data (What the manager sees first)
+        let products = [
+            { id: 1, name: "Blush Phulkari", price: "5,499", img: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?q=80&w=800" },
+            { id: 2, name: "Ivory Silk Edit", price: "7,200", img: "https://images.unsplash.com/photo-1610030469668-93510ec678f5?q=80&w=800" }
+        ];
+
+        // Function to render the website and admin list
+        function renderContent() {
+            const grid = document.getElementById('product-grid');
+            const adminList = document.getElementById('admin-list');
+            
+            // Clear existing
+            grid.innerHTML = '';
+            adminList.innerHTML = '';
+
+            products.forEach(product => {
+                // 1. Update Customer Website
+                grid.innerHTML += `
+                    <div class="group">
+                        <div class="relative overflow-hidden aspect-[3/4] mb-4 bg-gray-100">
+                            <img src="${product.img}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        </div>
+                        <h3 class="brand-font text-lg">${product.name}</h3>
+                        <p class="text-gold text-sm font-semibold tracking-widest">₹${product.price}</p>
+                        <a href="https://wa.me/910000000000?text=I want to order ${product.name}" class="mt-4 block text-[10px] uppercase font-bold border-b border-gray-900 w-fit pb-1 hover:text-gold hover:border-gold transition">Order Now</a>
+                    </div>
+                `;
+
+                // 2. Update Admin Manager List
+                adminList.innerHTML += `
+                    <div class="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-lg shadow-sm">
+                        <div class="flex items-center space-x-4">
+                            <img src="${product.img}" class="w-12 h-12 rounded object-cover">
+                            <div>
+                                <h4 class="text-sm font-bold">${product.name}</h4>
+                                <p class="text-xs text-gray-400">₹${product.price}</p>
+                            </div>
+                        </div>
+                        <button onclick="deleteProduct(${product.id})" class="text-red-400 hover:text-red-600 p-2">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
+            });
+        }
+
+        // Add New Design Logic
+        function addProduct() {
+            const name = document.getElementById('suitTitle').value;
+            const price = document.getElementById('suitPrice').value;
+            const img = document.getElementById('suitImg').value;
+
+            if(name && price && img) {
+                const newSuit = {
+                    id: Date.now(),
+                    name: name,
+                    price: price,
+                    img: img
+                };
+                products.push(newSuit);
+                renderContent();
+                
+                // Clear inputs
+                document.getElementById('suitTitle').value = '';
+                document.getElementById('suitPrice').value = '';
+                document.getElementById('suitImg').value = '';
+                
+                alert("New design added successfully!");
+            } else {
+                alert("Please fill all fields");
+            }
+        }
+
+        // Delete Logic
+        function deleteProduct(id) {
+            products = products.filter(p => p.id !== id);
+            renderContent();
+        }
+
+        // Switch Between Store and Admin
+        function showPage(pageId) {
+            document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        // Initial Load
+        renderContent();
+    </script>
+
+</body>
+</html>
